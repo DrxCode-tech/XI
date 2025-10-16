@@ -9,6 +9,7 @@ dotenv.config();
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
+const PORT = process.env.PORT || 3001
 
 const app = express();
 app.use(express.json());
@@ -44,6 +45,6 @@ app.post("/xi", async (req, res) => {
   }
 });
 
-app.listen(3001, () => {
-  console.log("🚀 Server running on http://localhost:3001");
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
